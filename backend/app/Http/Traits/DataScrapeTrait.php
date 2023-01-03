@@ -126,17 +126,27 @@ trait DataScrapeTrait
         // $company["market_capitalization_mn"] = str_replace(',', '', $table[7][3]);
         // dd($url, $table);
         $company["market_capital_mn"] = str_replace(',', '', $table[7][3]);
-        // dd($table[7][3]);
 
-        $company["authorized_capital_mn"] = str_replace(',', '', $table[9][1]);
 
-        $company["paidup_capital_mn"] = str_replace(',', '', $table[10][1]);
-        // dd($table[11][1]);
+        $company["authorized_capital_mn"] = str_replace(',', '', $table[8][1]);
+
+        $company["paidup_capital_mn"] = str_replace(',', '', $table[9][1]);
+
         $company["total_outstanding_share_mn"] = str_replace(',', '', $table[11][1]);
 
 
         $company["category"] = $table[61][1];
 
+        $company["address"] = str_replace(',', '', $table[79][2]);
+        dd($table[81][1]);
+        $company["Contact Phone"] = str_replace(',', '', $table[81][1]);
+
+        $company["cell_no"] = str_replace(',', '', $table[86][1]);
+
+
+
+        $company["E-mail"] = $table[83][1];
+        // dd($company);
 
         // $com->market_capital_mn = $company['market_capital_mn'];
         // $com->authorized_capital_mn = $company['market_capital_mn'];
