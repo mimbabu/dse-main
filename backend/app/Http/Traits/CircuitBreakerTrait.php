@@ -2,8 +2,12 @@
 
 namespace App\Http\Traits;
 
+use Carbon\Carbon;
+use App\Models\Company;
+use App\Models\CircuitBreak;
 use DOMDocument;
 use Exception;
+
 
 trait CircuitBreakerTrait
 {

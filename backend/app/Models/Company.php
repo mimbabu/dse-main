@@ -15,6 +15,7 @@ class Company extends Model
         'code',
         'company_name',
         'market_capitalization_mn',
+        'email'
     ];
 
     protected $with = ['sector'];

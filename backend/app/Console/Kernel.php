@@ -38,20 +38,38 @@ class Kernel extends ConsoleKernel
         // })->everyMinute()->between('10:01', '18:50');
         $schedule->call(function () {
             // scraping
+            echo "starting...\n";
+            echo "start Latest Share Price\n";
             $this->storeLatestSharePrice();
             // $this->storePriceEarning();
+            echo "start Latest Day End Summary\n";
             $this->storeLatestDayEndSummary();
-            $this->storeCompanySector();
+
+            echo "start Circuit Breaker\n";
             $this->circuitfoo();
             // from DSE IMDS data
+
+            echo "start trades info\n";
             $this->fetchTrdDataAndStore();
+
+            echo "start market announcement\n";
             $this->fetchMANDataAndStore();
+
+            echo "start market instrument stats\n";
             $this->fetchMkistatDataAndStore();
-            $this->fetchStatsDataAndStore();
+
+            // echo "start Circuit Breaker\n";
+            // $this->fetchStatsDataAndStore();
+
+            echo "start DSE indexes\n";
             $this->fetchIDXDataAndStore();
+
+            echo "start company details\n";
+            $this->storeCompanySector();
+            echo "completed.";
             // $url = "https://dsebd.org/displayCompany.php?name=";
             // $this->scrapeCompany($url);
-        })->everyMinute();
+        })->everyFiveMinutes();
     }
 
 
